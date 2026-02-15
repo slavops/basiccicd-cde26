@@ -27,7 +27,7 @@ jobs:
         
       - name: Run Tests with Coverage
         run: npm run test:coverage
-        continue-on-error: true
+        #continue-on-error: true
 
   docker:
     name: Docker Build and Test
@@ -38,7 +38,7 @@ jobs:
       
       - name: Build Docker image
         run: docker build -t weather-app .
-
+        
       - name: Run Docker container
         run: |
           docker run -d \
@@ -59,7 +59,7 @@ jobs:
         run: |
           # Test endpointu pogody dla Zakopanego
           response=$(curl http://localhost:3000/weather/Zakopane)
-          if [[ $response == *"zmeczona"* ]]; then
+          if [[ $response == *"tired"* ]]; then
             echo "Aplikacja jest zmęczona, szefie."
             exit 1
           fi
