@@ -33,7 +33,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm audit
-        continue-on-error: true
+        #continue-on-error: true
 
   docker-scan:
     name: Docker Image Scan
