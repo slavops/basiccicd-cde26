@@ -38,7 +38,7 @@ jobs:
       
       - name: Build Docker image
         run: docker build -t weather-app .
-        
+
       - name: Run Docker container
         run: |
           docker run -d \
@@ -59,7 +59,7 @@ jobs:
         run: |
           # Test endpointu pogody dla Zakopanego
           response=$(curl http://localhost:3000/weather/Zakopane)
-          if [[ $response == *"tired"* ]]; then
+          if [[ $response == *"zmeczona"* ]]; then
             echo "Aplikacja jest zmęczona, szefie."
             exit 1
           fi
